@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSchedule.Pages.Schedules"
+             Title="HomePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="" 
+                     Text="Modify" 
+                     x:Name="edititem"
+                     Order="Secondary"  
+                     Clicked="edititem_Clicked"
+                     />
+
+        <ToolbarItem IconImageSource="" 
+                     Text="Delete" 
+                     x:Name="BTN_delete"
+                     Order="Secondary"
+                     Clicked="BTN_delete_Clicked"
+                     />
+    </ContentPage.ToolbarItems>
+
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+        <Frame HeightRequest="100" CornerRadius="50" BackgroundColor="{StaticResource FrameColor_1}"
+               Margin="0,0,0,0"/>
+
+        <Label Grid.Row="0" 
+               Text="Registered Schools"
+               Margin="20" 
+               FontSize="Large"
+               FontAttributes="Bold"
+               VerticalOptions="Center" 
+               TextColor="{StaticResource TextColorWhite}"/>
+
+        <ImageButton Grid.Row="0"
+                     HorizontalOptions="EndAndExpand" 
+                     Source="add.png" 
+                     HeightRequest="30"
+                     WidthRequest="40"
+                     VerticalOptions="Center"
+                     Margin="20" 
+                     BackgroundColor="Transparent" />
+
+        <SearchBar Grid.Row="1" 
+                   Margin="10" 
+                   Placeholder="Find School" 
+                   BackgroundColor="{StaticResource FrameColor_1}" 
+                   PlaceholderColor="{StaticResource TextColorWhite}"/>
+
+        <Label Grid.Row="2" 
+               BackgroundColor="{StaticResource Primary}" 
+               x:Name="loader" TextColor="{StaticResource TextSoft}"
+               HorizontalOptions="CenterAndExpand"/>
+
+        <CollectionView Grid.Row="3" x:Name="ListUsers" SelectionMode="Single"
+                        SelectionChanged="ListUsers_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1" />
+
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Padding="2">
+                        
+                        <Border 
+                    
+                   HeightRequest="95" 
+                   Padding="0" Margin="2"
+                   
+                   BackgroundColor="{StaticResource Primary}" 
+                   >
+
+                       
+
+                            <Grid ColumnDefinitions="Auto, *">
+                                <Line Grid.Column="0" 
+                        WidthRequest="5" 
+                        BackgroundColor="{StaticResource ButtonColor}"/>
+
+                                <StackLayout Grid.Column="1" Margin="0" 
+                               Orientation="Horizontal" 
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="Transparent">
+
+                                    <Grid RowSpacing="0" RowDefinitions="Auto, Auto, Auto, Auto"
+                                              ColumnDefinitions="Auto, *">
+
+                                        <Label VerticalOptions="CenterAndExpand" 
+                                             Text="Subject And Time:"                          
+                                             TextColor="{StaticResource TextSoft}"                          
+                                             FontSize="Medium" 
+                                             LineBreakMode="TailTruncation"                         
+                                             HorizontalOptions="Start" 
+                                             Grid.Row="0" 
+                                             Grid.Column="0" />
+
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Subjectandtime}"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" LineBreakMode="TailTruncation"
+                                                   TextColor="{StaticResource TextColorWhite}" />
+
+                                        <Label VerticalOptions="CenterAndExpand" Text="First Name: "
+                                                   TextColor="{StaticResource TextSoft}"
+                                                   FontSize="Medium"
+                                                   HorizontalOptions="Start" Grid.Row="1" Grid.Column="0" />
+
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Firstname}"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" LineBreakMode="TailTruncation"
+                                                   TextColor="{StaticResource TextColorWhite}" />
+
+                                        <Label VerticalOptions="CenterAndExpand" Text="Last Name: "
+                                                   TextColor="{StaticResource TextSoft}"
+                                                   FontSize="Medium"
+                                                   HorizontalOptions="Start" Grid.Row="2" Grid.Column="0" />
+
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Lastname}"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" 
+                                                   LineBreakMode="TailTruncation"
+                                                   TextColor="{StaticResource TextColorWhite}" />
+
+
+
+                                    </Grid>
+                                </StackLayout>
+                            </Grid>
+                        </Border>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>

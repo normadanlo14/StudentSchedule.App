@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSchedule.Pages.EditPage"
+             Title="EditPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Grid RowDefinitions="Auto, *" Margin="10" ColumnSpacing="10" AbsoluteLayout.LayoutBounds="0,0,1,1"
+              AbsoluteLayout.LayoutFlags="All">
+                <Label Grid.Row="0" Text="School Modification" Margin="10,0"
+                VerticalOptions="Center" FontSize="30" FontAttributes="Bold"
+                HorizontalOptions="Start" TextColor="{StaticResource TextColorWhite}"/>
+                <Frame CornerRadius="10" Grid.Row="1" VerticalOptions="CenterAndExpand" BackgroundColor="{StaticResource FrameColor_1}">
+                    <Grid Margin="10" RowDefinitions="Auto,Auto, Auto">
+                        <Grid Grid.Row="0" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+
+                            <Entry Grid.Row="0" Placeholder="Subject and Time" BackgroundColor="{StaticResource FrameColor_1}" 
+                               x:Name="entrySaT" 
+                               PlaceholderColor="{StaticResource TextSoft}" TextColor="{StaticResource TextColorWhite}"/>
+
+                            <Entry Grid.Row="1" Placeholder="FirstName" BackgroundColor="{StaticResource FrameColor_1}" 
+                               x:Name="entryfname" 
+                               PlaceholderColor="{StaticResource TextSoft}" TextColor="{StaticResource TextColorWhite}"/>
+
+
+
+                            <Entry Grid.Row="2" Placeholder="LastName" BackgroundColor="{StaticResource FrameColor_1}"
+                               x:Name="entrylname"
+                               PlaceholderColor="{StaticResource TextSoft}" TextColor="{StaticResource TextColorWhite}"/>
+
+
+
+                        </Grid>
+                        <Button Grid.Row="1" BackgroundColor="{StaticResource ButtonColor}"
+                            Text="Modify" TextTransform="None" TextColor="{StaticResource TextColorBlack}"
+                            x:Name="btnmodify" CornerRadius="8"
+                                Clicked="btnmodify_Clicked"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+            <StackLayout
+            x:Name="progressLoading"
+            IsVisible="False"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Opacity="0.5"
+            BackgroundColor="Black">
+                <ActivityIndicator
+                x:Name="ai"
+                IsRunning="True" IsVisible="True"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Color="{StaticResource ButtonColor}" Margin="0,300,0,0" />
+                <Label Text="We're processing your request, please wait..." Margin="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

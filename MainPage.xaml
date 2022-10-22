@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSchedule.MainPage">
+
+   
+        <VerticalStackLayout VerticalOptions="Center">
+            <Grid VerticalOptions="Center" HorizontalOptions="Center" ColumnDefinitions="Auto ,Auto, Auto, Auto, Auto, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto">
+                <Label Grid.Row="0" Text="Student Schedule" HorizontalOptions="Center" FontSize="35"/>
+            <Entry Grid.Row="1" Placeholder="Email" x:Name="emailLogIn"/>
+            <Entry Grid.Row="2" Placeholder="Passowrd" x:Name="passwordLogIn"/>
+                <Button Grid.Row="3" Text="LogIn" Clicked="Button_Clicked"/>
+                <Button Grid.Row="4" Text="Create Account" Clicked="Button_Clicked_1"/>
+            </Grid>
+        </VerticalStackLayout>
+
+
+</ContentPage>
